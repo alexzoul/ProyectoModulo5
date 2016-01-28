@@ -120,8 +120,14 @@ public class UsuarioEntity implements Serializable {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
-    
+
+    public Collection<ArchivoEntity> getArchivos() {
+        return archivos;
+    }
+
+    public void setArchivos(Collection<ArchivoEntity> archivos) {
+        this.archivos = archivos;
+    }
     
     
 
