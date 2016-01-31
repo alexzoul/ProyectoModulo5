@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+        <ui:composition template="./../PublicTemplate.xhtml">
+            <ui:define name="content">
+                <div class="row">
+                    <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+                        <div id="panel_register" class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <h:outputText value="&nbsp;Registro"/>
+                            </div>
+                            <div class="panel-body">
+                                <h:form id="register_form">
+                                    <p:outputLabel for="name" value="Nombre(s): "/>
+                                    <p:inputText class="form-control" 
+                                                 id="name" 
+                                                 value="#{registerBean.userEntity.name}"
+                                                 required="true"/>
+                                    <p:message for="name"/>
+
+                                    <p:outputLabel for="paternal_name" value="Apellido Paterno: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="paternal_name" 
+                                                 value="#{registerBean.userEntity.paternal_name}"
+                                                 required="true"/>
+                                    <p:message for="paternal_name"/>
+
+                                    <p:outputLabel for="maternal_name" value="Apellido Materno: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="maternal_name" 
+                                                 value="#{registerBean.userEntity.maternal_name}"
+                                                 required="true"/>
+                                    <p:message for="maternal_name"/>
+
+                                    <p:outputLabel for="age" value="Edad: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="age" 
+                                                 value="#{registerBean.userEntity.age}"
+                                                 required="true"/>
+                                    <p:message for="age"/>
+
+                                    <p:outputLabel for="email" value="Correo: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="email" 
+                                                 value="#{registerBean.userEntity.email}"
+                                                 required="true"/>
+                                    <p:message for="email"/>
+
+                                    <p:outputLabel for="nickname" value="Nickname: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="nickname" 
+                                                 value="#{registerBean.userEntity.nickname}"
+                                                 required="true"/>
+                                    <p:message for="nickname"/>
+
+                                    <p:outputLabel for="password" value="Password "/>
+                                    <p:password class="form-control" 
+                                                id="password" 
+                                                value="#{registerBean.userEntity.password}"
+                                                required="true"/>
+                                    <p:message for="password"/>
+                                    
+                                    <br/>
+                                    <center>
+                                        <p:commandButton class="btn btn-default"
+                                                         value="Guardar" 
+                                                         action="#{registerBean.registerUser}"
+                                                         ajax="false"/>
+                                    </center>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

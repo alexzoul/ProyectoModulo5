@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
-import proyecto.modulo5.bean.EnlaceBean;
+import proyecto.modulo5.session.SessionBean;
 
 public class OyenteDeFase implements PhaseListener
 {
@@ -21,7 +21,7 @@ public class OyenteDeFase implements PhaseListener
     private boolean buscarUsuario(FacesContext contexto)
     {
         ExternalContext exContexto = contexto.getExternalContext();
-        return (exContexto.getSessionMap().containsKey(EnlaceBean.USUARIO_LLAVE_SESSION));
+        return (exContexto.getSessionMap().containsKey(SessionBean.KEY_SESSION));
     }
     
     
@@ -31,8 +31,8 @@ public class OyenteDeFase implements PhaseListener
         String[] viewId = evento.getFacesContext().getViewRoot().getViewId().split("/");
         
         if(viewId[viewId.length-1].equals("index.xhtml")
-                || viewId[viewId.length -1].equals("Enlace.xhtml")
-                 || viewId[viewId.length -1].equals("Registro.xhtml"))
+                || viewId[viewId.length -1].equals("Login.xhtml")
+                || viewId[viewId.length -1].equals("Register.xhtml"))
         {
             paginaValida = true;
         }
@@ -50,7 +50,7 @@ public class OyenteDeFase implements PhaseListener
         {
             if(!peticionVista(event))
             {
-                contexto.getApplication().getNavigationHandler().handleNavigation(contexto, null, "Enlace.jsf");
+                contexto.getApplication().getNavigationHandler().handleNavigation(contexto, null, "/public/Login.jsf?faces-redirect=true");
             }
         }
         }
