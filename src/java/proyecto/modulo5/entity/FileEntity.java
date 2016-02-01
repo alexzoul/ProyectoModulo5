@@ -8,10 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "file")
+@NamedQueries({
+    @NamedQuery(name = "getFilesByIdUser", query = "SELECT f FROM FileEntity f WHERE f.file_user.id=:user_id")
+})
 public class FileEntity implements Serializable 
 {
     private static final long serialVersionUID = 1L;
@@ -26,7 +31,7 @@ public class FileEntity implements Serializable
     
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user_files;
+    private UserEntity file_user;
 
 
 
@@ -46,12 +51,12 @@ public class FileEntity implements Serializable
         this.name = name;
     }
 
-    public UserEntity getUser_files() {
-        return user_files;
+    public UserEntity getFile_user() {
+        return file_user;
     }
 
-    public void setUser_files(UserEntity user_files) {
-        this.user_files = user_files;
+    public void setFile_user(UserEntity file_user) {
+        this.file_user = file_user;
     }
 
 

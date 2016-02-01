@@ -45,3 +45,36 @@ label
 {
     border-radius: 0px;
 }
+.error_message_login
+{
+    margin-top: 7px;
+    margin-bottom: -28px;
+}
+.error_message
+{
+    margin-top: 5px;
+    margin-bottom: -27px;
+    margin-right: 0;
+    float: right;
+}
+.text_error_message
+{
+    font-size: 13px;
+    font-weight: 400;
+    padding: 3px !important;
+    background: #ee3333;
+    color: white;
+}
+#panel_upload_images
+{
+    margin-top: 130px;
+}
+.img_download
+{
+    width: 100px;
+}
+.btn_download
+{
+    padding: 3px !important;
+    
+}

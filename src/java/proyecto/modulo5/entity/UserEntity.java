@@ -23,8 +23,7 @@ import javax.persistence.TemporalType;
 @NamedQueries({
     @NamedQuery(name = "checkNickname", query = "SELECT u FROM UserEntity u WHERE u.nickname=:nickname"),
     @NamedQuery(name = "checkEmail", query = "SELECT u FROM UserEntity u WHERE u.email=:email"),
-    @NamedQuery(name = "checkUser", query = "SELECT u FROM UserEntity u WHERE u.nickname=:nickname AND u.password=:password"),
-    @NamedQuery(name = "usuario", query = "SELECT u FROM UserEntity u WHERE u.id=:id")
+    @NamedQuery(name = "findUser", query = "SELECT u FROM UserEntity u WHERE u.nickname=:nickname AND u.password=:password"),
 })
 public class UserEntity implements Serializable 
 {
@@ -35,35 +34,35 @@ public class UserEntity implements Serializable
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, length = 45)
     private String name;
     
-    @Column(name = "paternal_name", nullable = false)
+    @Column(name = "paternal_name", nullable = false, length = 45)
     private String paternal_name;
     
-    @Column(name = "maternal_name", nullable = false)
+    @Column(name = "maternal_name", nullable = false, length = 45)
     private String maternal_name;
     
     @Column(name = "age", nullable = false)
     private Integer age;
     
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
     
-    @Column(name = "nickname", nullable = false)
+    @Column(name = "nickname", nullable = false, length = 20)
     private String nickname;
     
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 32)
     private String password;
     
-    @Column(name = "folder", nullable = false)
+    @Column(name = "folder", nullable = false, length = 20)
     private String folder;
     
     @Column(name="date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user_files", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "file_user", fetch = FetchType.LAZY)
     private List<FileEntity> files = new ArrayList<>();
 
 

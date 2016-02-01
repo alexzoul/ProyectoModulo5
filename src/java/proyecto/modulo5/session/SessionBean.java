@@ -4,7 +4,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import proyecto.modulo5.entity.UserEntity;
 
@@ -14,33 +13,11 @@ public class SessionBean
 {
     public static final String KEY_SESSION = "usuario";
     
-    public void checkSession(String roleType) 
+    public boolean checkSession() 
     {
-        String redirectUrl = "/public/Login.jsf";
-        
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        HttpSession httpSession = (HttpSession) facesContext.getExternalContext().getSession(true);
-        
-        if("Administrador".equals(roleType))
-        {
-            redirectUrl = "/private/Login.jsf";
-        }
-
-        if(httpSession.getAttribute(roleType +  "_id") == null)
-        {
-            try
-            {
-                ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-                String ctxPath = ((ServletContext) externalContext.getContext()).getContextPath();
-                externalContext.redirect(ctxPath + redirectUrl);
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
+        ExternalContext exContexto = FacesContext.getCurrentInstance().getExternalContext();
+        return exContexto.getSessionMap().containsKey(SessionBean.KEY_SESSION);
     }
-
    
     public void initSession(UserEntity userEntity) 
     {
@@ -55,6 +32,6 @@ public class SessionBean
                                         .getExternalContext()
                                         .getSession(false);
         currentSession.invalidate();
-        return "/public/Home";
+        return "/public/Login";
     }
 }

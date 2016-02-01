@@ -6,4 +6,7 @@
     <lifecycle>
         <phase-listener>proyecto.modulo5.utilerias.OyenteDeFase</phase-listener>
     </lifecycle>
+    <application>
+        <message-bundle>proyecto/modulo5/message/Messages</message-bundle>
+    </application>
 </faces-config>

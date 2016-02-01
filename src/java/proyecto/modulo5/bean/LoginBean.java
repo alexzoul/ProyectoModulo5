@@ -46,7 +46,7 @@ public class LoginBean implements Serializable
         try
         {
             UserEntity user = (UserEntity) etm
-                                        .createNamedQuery("checkUser")
+                                        .createNamedQuery("findUser")
                                         .setParameter("nickname", nickname)
                                         .setParameter("password", password)
                                         .getSingleResult();
@@ -54,7 +54,7 @@ public class LoginBean implements Serializable
             {
                 SessionBean sessionBean = new SessionBean();
                 sessionBean.initSession(user);
-                return "/private/Principal.jsf?faces-redirect=true";
+                return "/private/UploadImg.jsf?faces-redirect=true";
             }
         }
         catch (NoResultException ex)
@@ -62,7 +62,7 @@ public class LoginBean implements Serializable
             FacesMessage message = new FacesMessage();
             message.setDetail("Correo y/o Contraseña incorrectos");
             message.setSeverity(FacesMessage.SEVERITY_ERROR);
-            FacesContext.getCurrentInstance().addMessage(null,  message);
+            FacesContext.getCurrentInstance().addMessage("login_form:password",  message);
         }
         return null;
     }   

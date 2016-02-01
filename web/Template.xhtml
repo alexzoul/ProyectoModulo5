@@ -6,7 +6,6 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-        <h:outputScript library="default" name="js/jquery2.1.4.min.js"/>
         <h:outputScript library="default" name="js/bootstrap.min.js"/>
         <h:outputScript library="default" name="js/scripts.js"/>
         <h:outputStylesheet library="default" name="css/bootstrap.min.css"/>
@@ -17,7 +16,7 @@
     <h:body>
         <div class="container" id="main_container">
             <ui:insert name="top">
-                <ui:include src="./public/components/Navbar.xhtml" />
+                <ui:include src="./components/Navbar.xhtml" />
             </ui:insert>
             <div class="row" id="content_container">
                 <ui:insert name="content">

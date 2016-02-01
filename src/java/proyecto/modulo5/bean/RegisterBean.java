@@ -8,7 +8,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -74,19 +73,18 @@ public class RegisterBean implements Serializable
             {   
                 try
                 {
-                    String routeFolder = mainRoute + this.userEntity.getNickname();
                     File fileFolder = new File(mainRoute + this.userEntity.getNickname());
                     fileFolder.mkdir();
 
                     ust.begin();    
                     this.userEntity.setDate(new Date());
-                    this.userEntity.setFolder(routeFolder);
+                    this.userEntity.setFolder(this.userEntity.getNickname());
                     etm.persist(this.userEntity);
                     ust.commit();
 
                     SessionBean sessionBean = new SessionBean();
                     sessionBean.initSession(userEntity);
-                    return "/private/Principal.jsf?faces-redirect=true";
+                    return "/private/UploadImg.jsf?faces-redirect=true";
                 }
                 catch(Exception ex)
                 {
@@ -102,14 +100,5 @@ public class RegisterBean implements Serializable
                                         "Ocurrio un problema",""));
         }
         return null;
-    }
-    
-    private void createFolder()
-    {
-       /*
-        rutaUsuario.setRuta(userEntity.getLogin() + userEntity.getClave().substring(3));
-        rutaUsuario.setRutaArchivos(userEntity);
-        userEntity.getArchivos().add(rutaUsuario);
-        */
     }
 }
