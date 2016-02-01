@@ -24,6 +24,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "checkNickname", query = "SELECT u FROM UserEntity u WHERE u.nickname=:nickname"),
     @NamedQuery(name = "checkEmail", query = "SELECT u FROM UserEntity u WHERE u.email=:email"),
     @NamedQuery(name = "findUser", query = "SELECT u FROM UserEntity u WHERE u.nickname=:nickname AND u.password=:password"),
+    @NamedQuery(name = "findUserById", query = "SELECT u FROM UserEntity u WHERE u.id=:id"),
 })
 public class UserEntity implements Serializable 
 {

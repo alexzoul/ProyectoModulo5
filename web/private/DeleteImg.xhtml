@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+        <ui:composition template="./../Template.xhtml">
+            <ui:define name="content">
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10">
+                        <div id="panel_upload_images" class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                <h:outputText value="&nbsp;Borrar Imagenes"/>
+                            </div>
+                            <div class="panel-body">
+                                <f:event type="preRenderView" listener="#{deleteImgBean.findFiles()}"/>
+                                <h:form id="f1" prependId="false">
+                                    <p:dataTable id="tabla" 
+                                                 var="index"
+                                                 value="#{deleteImgBean.count}">
+                                        <p:column headerText="Imagen">
+                                            <center>
+                                                <p:graphicImage cache="false" value="#{deleteImgBean.getResourceImg()}" styleClass="img_download">
+                                                    <f:param name="index" value="#{index}"/>
+                                                </p:graphicImage>
+                                            </center>
+                                        </p:column>
+                                        <p:column headerText="Descarga">
+                                            <center>
+                                                <p:commandButton value="Borrar" ajax="false" immediate="true" styleClass="btn_download" action="#{deleteImgBean.deleteFile(index)}"/>
+                                            </center>
+                                        </p:column>
+                                    </p:dataTable>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

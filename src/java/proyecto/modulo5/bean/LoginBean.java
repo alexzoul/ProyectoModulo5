@@ -54,7 +54,7 @@ public class LoginBean implements Serializable
             {
                 SessionBean sessionBean = new SessionBean();
                 sessionBean.initSession(user);
-                return "/private/UploadImg.jsf?faces-redirect=true";
+                return "/private/MyAccount.jsf?faces-redirect=true";
             }
         }
         catch (NoResultException ex)

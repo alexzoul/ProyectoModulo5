@@ -50,7 +50,7 @@ public class OyenteDeFase implements PhaseListener
         {
             if(!peticionVista(event))
             {
-                contexto.getApplication().getNavigationHandler().handleNavigation(contexto, null, "/public/Login.jsf?faces-redirect=true");
+                contexto.getApplication().getNavigationHandler().handleNavigation(contexto, null, "/public/MyAccount.jsf?faces-redirect=true");
             }
         }
         }

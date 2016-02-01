@@ -15,7 +15,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "file")
 @NamedQueries({
-    @NamedQuery(name = "getFilesByIdUser", query = "SELECT f FROM FileEntity f WHERE f.file_user.id=:user_id")
+    @NamedQuery(name = "getFilesByIdUser", query = "SELECT f FROM FileEntity f WHERE f.file_user.id=:user_id"),
+    @NamedQuery(name = "getFileById", query = "SELECT f FROM FileEntity f WHERE f.id=:id")
 })
 public class FileEntity implements Serializable 
 {

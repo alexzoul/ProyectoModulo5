@@ -13,14 +13,23 @@ function getIdNavbarElement(path)
 {
     switch (path)
     {
-        case '/ProyectoModulo5/public/Home.jsf':
-            return '#li_home';
-            break;
         case '/ProyectoModulo5/public/Login.jsf':
             return '#li_login';
             break;
         case '/ProyectoModulo5/public/Register.jsf':
             return '#li_register';
+            break;
+        case '/ProyectoModulo5/private/MyAccount.jsf':
+            return '#li_myaccount';
+            break;
+        case '/ProyectoModulo5/private/UploadImg.jsf':
+            return '#li_upload_img';
+            break;
+        case '/ProyectoModulo5/private/DownloadImg.jsf':
+            return '#li_download_img';
+            break;
+        case '/ProyectoModulo5/private/DeleteImg.jsf':
+            return '#li_delete_img';
             break;
         default:
             return null;

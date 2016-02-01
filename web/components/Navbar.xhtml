@@ -26,16 +26,28 @@
                                 <h:outputText value="&nbsp;Registro"/>
                             </h:commandLink>
                         </li>
-                        <li>
+                        <li id="li_myaccount">
+                            <h:commandLink action="/private/MyAccount.jsf?faces-redirect=true" rendered="#{sessionBean.checkSession()}"> 
+                                <span class="glyphicon glyphicon-user"></span>
+                                <h:outputText value="&nbsp;Mi Cuenta"/>
+                            </h:commandLink>
+                        </li>
+                        <li id="li_upload_img">
                             <h:commandLink action="/private/UploadImg.jsf?faces-redirect=true" rendered="#{sessionBean.checkSession()}"> 
                                 <span class="glyphicon glyphicon-open-file"></span>
                                 <h:outputText value="&nbsp;Subir Imagenes"/>
                             </h:commandLink>
                         </li>
-                        <li>
+                        <li id="li_download_img">
                             <h:commandLink action="/private/DownloadImg.jsf?faces-redirect=true" rendered="#{sessionBean.checkSession()}"> 
                                 <span class="glyphicon glyphicon-download-alt"></span>
                                 <h:outputText value="&nbsp;Bajar Imagenes"/>
+                            </h:commandLink>
+                        </li>
+                        <li id="li_delete_img">
+                            <h:commandLink action="/private/DeleteImg.jsf?faces-redirect=true" rendered="#{sessionBean.checkSession()}"> 
+                                <span class="glyphicon glyphicon-trash"></span>
+                                <h:outputText value="&nbsp;Borrar Imagenes"/>
                             </h:commandLink>
                         </li>
                         <li>
