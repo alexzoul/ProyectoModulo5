@@ -96,16 +96,7 @@ public class DownloadImgBean implements Serializable
         }
         return null;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     public StreamedContent getDownload()
     {
         try

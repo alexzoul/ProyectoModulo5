@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+        <ui:composition template="./../Template.xhtml">
+            <ui:define name="content">
+                <div class="row">
+                    <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
+                        <div id="panel_register" class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <h:outputText value="&nbsp;Registro"/>
+                            </div>
+                            <div class="panel-body">
+                                <h:form id="register_form">
+                                    <h:outputLabel for="name" value="Nombre(s): "/>
+                                    <p:inputText class="form-control" 
+                                                 id="name" 
+                                                 value="#{editInformationBean.userEntity.name}"
+                                                 required="true"
+                                                 maxlength="45">
+                                         <f:validator validatorId="nameValidator"/>
+                                    </p:inputText>
+                                    <div class="row error_message">
+                                        <h:message for="name" styleClass="alert alert-danger text_error_message"/>
+                                    </div>
+                                    <br/>
+                                    <h:outputLabel for="paternal_name" value="Apellido Paterno: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="paternal_name" 
+                                                 value="#{editInformationBean.userEntity.paternal_name}"
+                                                 required="true"
+                                                 maxlength="45">
+                                        <f:validator validatorId="nameValidator"/>
+                                    </p:inputText>
+                                    <div class="row error_message">
+                                        <h:message for="paternal_name" styleClass="alert alert-danger text_error_message"/>
+                                    </div>
+                                    <br/>
+                                    <h:outputLabel for="maternal_name" value="Apellido Materno: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="maternal_name" 
+                                                 value="#{editInformationBean.userEntity.maternal_name}"
+                                                 required="true"
+                                                 maxlength="45">
+                                        <f:validator validatorId="nameValidator"/>
+                                    </p:inputText>
+                                    <div class="row error_message">
+                                        <h:message for="maternal_name" styleClass="alert alert-danger text_error_message"/>
+                                    </div>
+                                    <br/>
+                                    <h:outputLabel for="age" value="Edad: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="age" 
+                                                 value="#{editInformationBean.userEntity.age}"
+                                                 required="true"
+                                                 maxlength="2"/>
+                                    <div class="row error_message">
+                                        <h:message for="age" styleClass="alert alert-danger text_error_message"/>
+                                    </div>
+                                    <br/>
+                                    <h:outputLabel for="email" value="Correo: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="email" 
+                                                 value="#{editInformationBean.userEntity.email}"
+                                                 required="true"
+                                                 maxlength="100">
+                                        <f:validator validatorId="emailValidator"/>
+                                    </p:inputText>
+                                    <div class="row error_message">
+                                        <h:message for="email" styleClass="alert alert-danger text_error_message"/>
+                                    </div>
+                                    <br/>
+                                    <h:outputLabel for="nickname" value="Nickname: "/>
+                                    <p:inputText class="form-control" 
+                                                 id="nickname" 
+                                                 value="#{editInformationBean.userEntity.nickname}"
+                                                 required="true"
+                                                 maxlength="20">
+                                        <f:validator validatorId="nicknameValidator"/>
+                                    </p:inputText>
+                                    <div class="row error_message">
+                                        <h:message for="nickname" styleClass="alert alert-danger text_error_message"/>
+                                    </div>
+                                    <br/>
+                                    <h:outputLabel for="password" value="Contraseña: "/>
+                                    <p:password class="form-control" 
+                                                id="password" 
+                                                value="#{editInformationBean.userEntity.password}"
+                                                required="true"
+                                                maxlength="32"/>
+                                    <div class="row error_message">
+                                        <h:message for="password" styleClass="alert alert-danger text_error_message"/>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <center>
+                                        <p:commandButton class="btn btn-default"
+                                                         value="Guardar" 
+                                                         action="#{editInformationBean.updateUser()}"
+                                                         ajax="false"/>
+                                    </center>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

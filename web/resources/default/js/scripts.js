@@ -22,6 +22,8 @@ function getIdNavbarElement(path)
         case '/ProyectoModulo5/private/MyAccount.jsf':
             return '#li_myaccount';
             break;
+        case '/ProyectoModulo5/private/EditInformation.jsf':
+            return '#li_edit_information';
         case '/ProyectoModulo5/private/UploadImg.jsf':
             return '#li_upload_img';
             break;

@@ -32,6 +32,12 @@
                                 <h:outputText value="&nbsp;Mi Cuenta"/>
                             </h:commandLink>
                         </li>
+                        <li id="li_edit_information">
+                            <h:commandLink action="/private/EditInformation.jsf?faces-redirect=true" rendered="#{sessionBean.checkSession()}"> 
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <h:outputText value="&nbsp;Editar Informacion"/>
+                            </h:commandLink>
+                        </li>
                         <li id="li_upload_img">
                             <h:commandLink action="/private/UploadImg.jsf?faces-redirect=true" rendered="#{sessionBean.checkSession()}"> 
                                 <span class="glyphicon glyphicon-open-file"></span>
